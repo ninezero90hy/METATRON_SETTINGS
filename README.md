@@ -254,21 +254,12 @@
 ## Druid 설정
 
 - 드루이드는 메타트론 프로젝트의 README 확인후 변경 필요
+  오늘 날짜로 `druid-0.9.1-latest-hadoop-2.7.3-bin.tar.gz` 이 최신 버젼
 
-- 오늘 날짜로 `druid-0.9.1-latest-hadoop-2.7.3-bin.tar.gz` 이 최신 버젼
-
-- ![스크린샷 2019-01-17 오후 6.45.54](https://github.com/ninezero90hy/metatron-settings/blob/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-01-17%20%EC%98%A4%ED%9B%84%206.45.54.png?raw=true)
-
-- 다운로드 링크 확인하는 방법
-
-  - 드루이드는 메타트론 프로젝트의 README > Installation > `Druid customized version for Metatron` 링크주소 확인
-
-  - 아래 스크립트의 바이너리 이름은 상황에 따라 적절히 변경이 필요
-
-    ```shell
-    # tar zxvf druid-0.9.1-latest-hadoop-2.7.3-bin.tar.gz
-    # ./init.sh druid-0.9.1-SNAPSHOT.3.1.0.201812070238-hadoop-2.7.3
-    ```
+- 다운로드 링크 확인하는 방법 :
+  드루이드는 메타트론 프로젝트의 README > Installation > `Druid customized version for Metatron` 링크주소 확인
+  ![스크린샷 2019-01-17 오후 6.45.54](https://github.com/ninezero90hy/metatron-settings/blob/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-01-17%20%EC%98%A4%ED%9B%84%206.45.54.png?raw=true)
+- **아래 스크립트의 드루이드 바이너리 이름은 메타트론 프로젝트에서 제공하는 바이너리 버젼에 따라 적절히 변경이 필요**
 
 ```bash
  cd /Development/Hadoop/
