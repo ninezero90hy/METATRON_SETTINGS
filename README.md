@@ -5,7 +5,7 @@
  cd /
  sudo mkdir -p /Development/Hadoop
  sudo chown -R -v '오너 이름' /Development/
- mv '다운로드 경로'/settings Development/
+ mv '해당 프로젝트 다운로드 경로'/metatron-settings /Development/
 ```
 
 ## MariaDB 설치
@@ -58,10 +58,10 @@
 ## Hadoop 설치
 ```bash
  cd /Development/Hadoop/
- wget http://apache.tt.co.kr/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz
+ wget http://apache.tt.co.kr/hadoop/common/hadoop-2.7.6/hadoop-2.7.6.tar.gz
  tar zxvf hadoop*.tar.gz
- mv hadoop-2.7.4.tar.gz ../
- mv hadoop-2.7.4/ hadoop
+ mv hadoop-2.7.6.tar.gz ../
+ mv hadoop-2.7.6/ hadoop
  cd hadoop
  mkdir tmp
 
@@ -187,7 +187,7 @@
 ```bash
  # 다운 및 압축해제
  cd ../
- tar xvfz ../settings/metatron-hive.tar.gz
+ tar xvfz ../metatron-settings/metatron-hive.tar.gz
 
  vi ~/.bashrc
  ##############################################################################################
@@ -252,18 +252,36 @@
 ```
 
 ## Druid 설정
+
+- 드루이드는 메타트론 프로젝트의 README 확인후 변경 필요
+
+- 오늘 날짜로 `druid-0.9.1-latest-hadoop-2.7.3-bin.tar.gz` 이 최신 버젼
+
+- ![스크린샷 2019-01-17 오후 6.45.54](/Development/metatron-settings/스크린샷 2019-01-17 오후 6.45.54.png)
+
+- 다운로드 링크 확인하는 방법
+
+  - 드루이드는 메타트론 프로젝트의 README > Installation > `Druid customized version for Metatron` 링크주소 확인
+
+  - 아래 스크립트의 바이너리 이름은 상황에 따라 적절히 변경이 필요
+
+    ```shell
+    # tar zxvf druid-0.9.1-latest-hadoop-2.7.3-bin.tar.gz
+    # ./init.sh druid-0.9.1-SNAPSHOT.3.1.0.201812070238-hadoop-2.7.3
+    ```
+
 ```bash
  cd /Development/Hadoop/
  mkdir druid
- cp ../settings/druid* druid
+ cp ../metatron-settings/druid* druid
  cd druid
  unzip druid_bootstrap_init.zip
- tar zxvf druid-0.9.1-SNAPSHOT.local.201801111508-bin.tar.gz
- ./init.sh druid-0.9.1-SNAPSHOT.local.201801111508
+ tar zxvf druid-0.9.1-latest-hadoop-2.7.3-bin.tar.gz
+ ./init.sh druid-0.9.1-SNAPSHOT.3.1.0.201812070238-hadoop-2.7.3
  cd druid
  ./start-single.sh
  cd ..
- cp ../../settings/ingestion.zip .
+ cp ../../metatron-settings/ingestion.zip .
  unzip ingestion.zip
  cd ingestion
 
@@ -285,8 +303,8 @@
 ## start-all.sh / stop-all.sh 복사
 ```bash
  cd /Development/Hadoop/
- cp ../settings/start-all.sh .
- cp ../settings/stop-all.sh .
+ cp ../metatron-settings/start-all.sh .
+ cp ../metatron-settings/stop-all.sh .
 ```
 
 여기까지가 메타트론 설정입니다.
@@ -299,6 +317,6 @@
 ```bash
 1. 드루이드 정지
 2. 드루이드 심볼릭 링크 제거
-3. [드루이드 설정](https://gitlab.com/metatron/settings#druid-%EC%84%A4%EC%A0%95)
+3. [드루이드 설정](https://gitlab.com/metatron/metatron-settings#druid-%EC%84%A4%EC%A0%95)
  - start-single.sh 까지만 하시면 됩니다.
 ```
