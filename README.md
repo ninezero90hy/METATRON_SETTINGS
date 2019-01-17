@@ -257,7 +257,7 @@
 
 - 오늘 날짜로 `druid-0.9.1-latest-hadoop-2.7.3-bin.tar.gz` 이 최신 버젼
 
-- ![스크린샷 2019-01-17 오후 6.45.54](/Development/metatron-settings/스크린샷 2019-01-17 오후 6.45.54.png)
+- ![스크린샷 2019-01-17 오후 6.45.54](https://github.com/ninezero90hy/metatron-settings/blob/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-01-17%20%EC%98%A4%ED%9B%84%206.45.54.png?raw=true)
 
 - 다운로드 링크 확인하는 방법
 
