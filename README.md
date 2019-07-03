@@ -25,24 +25,23 @@
 ```
  mysql -uroot
 
- # 테이블 생성 및 권한 부여
- create database hive_metastore_db;
- grant all privileges on *.* to 'hive'@'localhost' identified by 'hive' with grant option;
- grant all privileges on *.* to 'hive'@'%' identified by 'hive' with grant option;
- grant all privileges on hive_metastore_db.* to 'hive'@'%' identified by 'hive';
-
- # 생성확인
- select host from mysql.user where user='hive';
-```
+ # polaris 관련 DB 설정
+ create database polaris CHARACTER SET utf8;
+ grant all privileges on polaris.* TO polaris@localhost identified by 'polaris';
+ grant all privileges on polaris.* TO polaris@'%' identified by 'polaris';
+ create database polaris_datasources CHARACTER SET utf8;
+ grant all privileges on polaris_datasources.* TO polaris@localhost identified by 'polaris';
+ grant all privileges on polaris_datasources.* TO polaris@'%' identified by 'polaris';
+ flush privileges;
+``
 
 ## ssh
-```bash
+​```bash
  ssh-keygen -t rsa -P ""
  cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
  chmod 700 ~/.ssh
  chmod 600 ~/.ssh/authorized_keys
  ssh localhost
-
  #############################################################################################
  # SSH로 localhost 접속이 되지 않는 경우 처리
  # 참고 : (https://forums.macrumors.com/threads/ssh-connection-refused.1516735/)
@@ -228,6 +227,22 @@
 ```
 
 ## Hive 관련 설정
+
+ ### 하이브 메타스토어 테이블 생성 및 권한 부여
+ ```sql
+create database _metastore_db;
+grant all privileges on . to 'hive'@'localhost' identified by 'hive' with grant option;
+grant all privileges on . to 'hive'@'%' identified by 'hive' with grant option;
+grant all privileges on hive_metastore_db.* to 'hive'@'%' identified by 'hive';
+ ```
+
+ ### 생성확인
+```sql
+select host from mysql.user where user='hive';
+```
+
+ ### 환경 설정 변경
+
 ```bash
  ##############################################################################################
  # Hive > hive-env.sh 수정
@@ -246,17 +261,9 @@
  # beeline 실행
  beeline -u jdbc:hive2://localhost:10000
 
+
  # Hive 관련 스키마 SQL 실행
  mysql -uroot hive_metastore_db < /Development/Hadoop/hive/scripts/metastore/upgrade/mysql/hive-schema-1.2.0.mysql.sql
-
- # polaris 관련 DB 설정
- create database polaris CHARACTER SET utf8;
- grant all privileges on polaris.* TO polaris@localhost identified by 'polaris';
- grant all privileges on polaris.* TO polaris@'%' identified by 'polaris';
- create database polaris_datasources CHARACTER SET utf8;
- grant all privileges on polaris_datasources.* TO polaris@localhost identified by 'polaris';
- grant all privileges on polaris_datasources.* TO polaris@'%' identified by 'polaris';
- flush privileges;
 ```
 
 ## Druid 설정
