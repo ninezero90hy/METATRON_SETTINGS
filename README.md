@@ -234,6 +234,7 @@ create database _metastore_db;
 grant all privileges on . to 'hive'@'localhost' identified by 'hive' with grant option;
 grant all privileges on . to 'hive'@'%' identified by 'hive' with grant option;
 grant all privileges on hive_metastore_db.* to 'hive'@'%' identified by 'hive';
+flush privileges;
  ```
 
  ### 생성확인
