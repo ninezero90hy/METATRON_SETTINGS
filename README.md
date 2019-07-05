@@ -230,7 +230,7 @@
 
  ### 하이브 메타스토어 테이블 생성 및 권한 부여
  ```sql
-create database _metastore_db;
+create database hive_metastore_db;
 grant all privileges on . to 'hive'@'localhost' identified by 'hive' with grant option;
 grant all privileges on . to 'hive'@'%' identified by 'hive' with grant option;
 grant all privileges on hive_metastore_db.* to 'hive'@'%' identified by 'hive';
