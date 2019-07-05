@@ -133,6 +133,14 @@
  #         <name>hadoop.proxyuser.gkoreamanr.hosts</name>
  #         <value>*</value>
  #     </property>
+ #     <property>
+ #         <name>fs.trash.interval</name>
+ #         <value>86400</value>
+ #     </property>
+ #     <property>
+ #         <name>fs.trash.checkpoint.interval</name>
+ #         <value>120</value>
+ #     </property>
  # </configuration>
  ##############################################################################################
 
